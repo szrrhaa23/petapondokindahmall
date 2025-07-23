@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Peta Sebaran Industri Sekitar PIM</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 100vh;
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([-6.2612, 106.7814], 17);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  const data = [
+    { name: "Pondok Indah Mall 1", lat: -6.2609, lon: 106.7807, img: "https://i.ibb.co/3N9Sw4g/pim1.jpg" },
+    { name: "Pondok Indah Mall 2", lat: -6.2616, lon: 106.7809, img: "https://i.ibb.co/L5Vdy3p/pim2.jpg" },
+    { name: "Street Gallery PIM", lat: -6.2612, lon: 106.7814, img: "https://i.ibb.co/1zpghGS/streetgallery.jpg" },
+    { name: "McDonald's PIM", lat: -6.2621, lon: 106.7812, img: "https://i.ibb.co/VYKrTh7/mcd.jpg" },
+    { name: "Starbucks PIM 2", lat: -6.2618, lon: 106.7808, img: "https://i.ibb.co/q95SZK7/starbucks.jpg" },
+    { name: "Ace Hardware PIM", lat: -6.2608, lon: 106.7804, img: "https://i.ibb.co/fnRknZX/ace.jpg" },
+    { name: "Toko Buku Gramedia", lat: -6.2606, lon: 106.7811, img: "https://i.ibb.co/kymnKqg/gramedia.jpg" },
+    { name: "Cinema XXI PIM", lat: -6.2610, lon: 106.7806, img: "https://i.ibb.co/ySdjB8S/cinema.jpg" },
+    { name: "Pizza Hut Delivery", lat: -6.2620, lon: 106.7799, img: "https://i.ibb.co/G5PPSKP/pizzahut.jpg" },
+    { name: "Dunkin' Donuts", lat: -6.2628, lon: 106.7815, img: "https://i.ibb.co/XxSTwKr/dunkin.jpg" },
+    { name: "Guardian Pharmacy", lat: -6.2621, lon: 106.7820, img: "https://i.ibb.co/QMkBtMV/guardian.jpg" },
+    { name: "Watsons PIM", lat: -6.2615, lon: 106.7817, img: "https://i.ibb.co/sHccPsx/watsons.jpg" },
+    { name: "Showroom Toyota", lat: -6.2625, lon: 106.7830, img: "https://i.ibb.co/wr3NRFf/toyota.jpg" },
+    { name: "CoHive Office Space", lat: -6.2602, lon: 106.7825, img: "https://i.ibb.co/fqk9XRT/cohive.jpg" },
+    { name: "J&T Express", lat: -6.2590, lon: 106.7830, img: "https://i.ibb.co/yf3ZWGm/jnt.jpg" }
+  ];
+
+  data.forEach(item => {
+    L.marker([item.lat, item.lon]).addTo(map)
+      .bindPopup(`<b>${item.name}</b><br><img src="${item.img}" width="150">`);
+  });
+</script>
+</body>
+</html>
